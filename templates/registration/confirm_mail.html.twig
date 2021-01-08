@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Green Food Label | Confirmation de création de compte{% endblock %}
+
+{% block body %}
+
+<div class="massive-container">
+    <div class ="logo">
+        <img src="{{ asset('build/logo.png') }}" height="200" width="200" alt="logo"/>
+        <h1>Obtention du label Green Food</h1>
+    </div>
+    <div class ="main-container">
+        <div class ="reset-container">
+            <p>Vous avez reçu un e-mail. Vérifiez votre boîte de réception.</p>
+            <p>Vous allez être redirigé vers l'accueil dans <span id="countdown"></span> seconde(s).</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+      let max_time = 5;
+      let cinterval;
+      function countdown_timer(){
+        max_time--;
+        document.getElementById('countdown').innerHTML = max_time;
+        if(max_time === 0){
+          clearInterval(cinterval);
+          window.location.href="{{ path('app_login') }}";
+        }
+      }
+      cinterval = setInterval('countdown_timer()', 1000);
+    </script>
+{% endblock %}

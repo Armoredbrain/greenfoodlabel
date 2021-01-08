@@ -1,0 +1,82 @@
+{% extends "home/user/layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class ="make-demand">
+        <a href="{{ path('user_facility_type') }}"><button type="submit" class="btn btn-success button-demand">FAIRE UNE DEMANDE</button></a>
+    </div>
+    <div class ="main-admin-container">
+        <div class ="demand-bar">
+            <h4>Reprendre une demande non finalisée</h4>
+        </div>
+        {% for facility in user.facilities if facility.status == constant('App\\Entity\\Facility::WAITING') %}
+            <div class ="demands">
+                <div class ="shop-name">
+                    <h5>{{ facility.legalEntity }}</h5>
+                </div>
+                <div class ="status">
+                    <a href="#"><button type="submit" class="btn btn-success">Voir la demande</button></a>
+                </div>
+            </div>
+            {% else %}
+                <div class ="demand-bar">
+                    <p>(pas de dossier)</p>
+                </div>
+        {% endfor %}
+        <hr/>
+        <div class ="demand-bar">
+            <h4>Mes demandes validées</h4>
+        </div>
+        {% for facility in user.facilities if facility.status == constant('App\\Entity\\Facility::VALID') %}
+            <div class ="demands">
+                <div class ="shop-name">
+                    <h5>{{ facility.legalEntity }}</h5>
+                </div>
+                <div class ="status">
+                    <a href="#"><button type="submit" class="btn btn-success">Voir la demande</button></a>
+                </div>
+            </div>
+            {% else %}
+                <div class ="demand-bar">
+                    <p>(pas de dossier)</p>
+                </div>
+        {% endfor %}
+        <hr/>
+        <div class ="demand-bar">
+            <h4>Mes demandes en cours de validation</h4>
+        </div>
+        {% for facility in user.facilities if facility.status == constant('App\\Entity\\Facility::PROCESSING')%}
+            <div class ="demands">
+                <div class ="shop-name">
+                    <h5>{{ facility.legalEntity }}</h5>
+                </div>
+                <div class ="status">
+                    <a href="#"><button type="submit" class="btn btn-success">Voir la demande</button></a>
+                </div>
+            </div>
+            {% else %}
+                <div class ="demand-bar">
+                    <p>(pas de dossier)</p>
+                </div>
+        {% endfor %}
+        <hr/>
+        <div class ="demand-bar">
+            <h4>Mes demandes refusées</h4>
+        </div>
+        {% for facility in user.facilities if facility.status == constant('App\\Entity\\Facility::REFUSE') %}
+            <div class ="demands">
+                <div class ="shop-name">
+                    <h5>{{ facility.legalEntity }}</h5>
+                </div>
+                <div class ="status">
+                    <a href="#"><button type="submit" class="btn btn-success">Voir la demande</button></a>
+                </div>
+            </div>
+        {% else %}
+            <div class ="demand-bar">
+                <p>(pas de dossier)</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

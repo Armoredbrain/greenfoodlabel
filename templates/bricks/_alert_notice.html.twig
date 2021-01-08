@@ -1,0 +1,8 @@
+{% for message in app.flashes('notice') %}
+    <div id="pop" class="alert alert-success demand">
+        {{ message }}
+        <button id="danger-pop" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endfor %}

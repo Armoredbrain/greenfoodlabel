@@ -1,0 +1,27 @@
+{% extends 'home/admin/layout.html.twig' %}
+
+{% block title %}Green Food | Admin{% endblock %}
+
+{% block body %}
+    <div class="main-admin-container">
+        <div class="demand-bar">
+            <h4>Liste des utilisateurs</h4>
+        </div>
+        {% for user in users %}
+            <div class="demands">
+                <div class="shop-name">
+                    <h5>{{ user.lastname }} {{ user.firstname }} </h5>
+                </div>
+                <div class="status">
+                    <a href="#">
+                        <button type="submit" class="btn btn-success">Détails</button>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <div class="demand-bar">
+                <p>(pas d'utilisateurs)</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

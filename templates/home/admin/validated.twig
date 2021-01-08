@@ -1,0 +1,25 @@
+{% extends 'home/admin/layout.html.twig' %}
+
+{% block title %}Green Food | Admin{% endblock %}
+
+{% block body %}
+    <div class ="main-admin-container">
+    <div class ="demand-bar">
+        <h4>Demandes validées</h4>
+    </div>
+    {% for facility in facilities %}
+        <div class ="demands">
+            <div class ="shop-name">
+                <h5>{{ facility.createdAt|date("d/m/Y") }}{{ facility.legalEntity }}</h5>
+            </div>
+            <div class ="status">
+                <a href="#"><button type="submit" class="btn btn-success">Voir la demande</button></a>
+            </div>
+        </div>
+    {% else %}
+        <div class ="demand-bar">
+            <p>(pas de dossier)</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

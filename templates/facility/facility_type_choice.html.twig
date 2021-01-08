@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Green Label | Type d'établissement{% endblock %}
+
+{% block body %}
+    <div class="massive-container">
+        <div class="logo">
+            <img src="{{ asset('build/logo.png') }}" height="200" width="200" alt="logo"/>
+            <h1>Obtention du label Green Food</h1>
+        </div>
+        <div class="main-container-register">
+            <div class="second-container">
+                <h2>Type d'établissement</h2>
+            </div>
+            <div class="leftRight-container">
+                <div class="left-container">
+                    {% for type in types %}
+                        <div class="third-container">
+                            <a href="{{ path('user_facility_legal', { 'name' : type.name} ) }}">
+                                <button type="submit" class="btn btn-success button-login">{{ type.name }}</button>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

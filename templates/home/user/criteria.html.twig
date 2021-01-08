@@ -1,0 +1,15 @@
+{% extends "home/user/layout.html.twig" %}
+
+{% block title %}Formulaire de critères{% endblock %}
+
+{% block body %}
+
+    {% for criteria in criterias %}
+        <div class ="demands">
+            <div class ="status">
+                <h5>{{ criteria.question }}</h5>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

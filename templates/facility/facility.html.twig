@@ -1,0 +1,82 @@
+{% extends "home/user/layout.html.twig" %}
+
+{% block title %}Infos légales{% endblock %}
+
+{% block body %}
+    <div class ="main-admin-container">
+        <div class ="demands-step">
+            <div class ="shop-name-step">
+                <h4>Informations légales de l'établissement</h4>
+                {{ form_start(facilityForm) }}
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.legalEntity, 'Raison sociale') }}
+                            {{ form_widget(facilityForm.legalEntity) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.legalStatus, 'Forme juridique') }}
+                            {{ form_widget(facilityForm.legalStatus) }}
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        {{ form_label(facilityForm.adress, 'Adresse') }}
+                        {{ form_widget(facilityForm.adress) }}
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.zip, 'Code Postal') }}
+                            {{ form_widget(facilityForm.zip) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.city, 'Ville') }}
+                            {{ form_widget(facilityForm.city) }}
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.country, 'Pays') }}
+                            {{ form_widget(facilityForm.country) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.matriculation, 'Siret') }}
+                            {{ form_widget(facilityForm.matriculation) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.matriculationCity, 'Ville du greffe') }}
+                            {{ form_widget(facilityForm.matriculationCity) }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form_label(facilityForm.capital, 'Capital') }}
+                            {{ form_widget(facilityForm.capital) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            {{ form_label(facilityForm.managerLastname, 'Nom du représentant') }}
+                            {{ form_widget(facilityForm.managerLastname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            {{ form_label(facilityForm.managerFirstname, 'Prénom du représentant') }}
+                            {{ form_widget(facilityForm.managerFirstname) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            {{ form_label(facilityForm.role, 'Nature de la fonction') }}
+                            {{ form_widget(facilityForm.role) }}
+                        </div>
+                    </div>
+                </div>
+                <a href="#"> <button type="submit" class="btn btn-success button-login">Etape suivante</button></a>
+                {{ form_end(facilityForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
